@@ -21,6 +21,10 @@
                 <h2>Importer un fichier</h2>
                 <p>Choisissez le fichier que vous souhaitez importer</p>
                 
+                <div id="success-message" class="success-message" style="display: none;">
+                    <p>✅ Fichier importé avec succès!</p>
+                </div>
+                
                 <form id="vulnerability-form" action="#" method="post">
                     <div class="file-upload">
                         <label for="file-input" class="file-label">
@@ -40,5 +44,30 @@
             <p>&copy; 2025 TARMAK Industries. Tous droits réservés.</p>
         </footer>
     </div>
+    
+    <script>
+        // Script pour mettre à jour l'affichage du nom du fichier sélectionné
+        document.getElementById('file-input').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'Aucun fichier sélectionné';
+            document.getElementById('file-name').textContent = fileName;
+        });
+        
+        // Gérer la soumission du formulaire
+        document.getElementById('vulnerability-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêcher le rechargement de la page
+            
+            const fileInput = document.getElementById('file-input');
+            if (fileInput.files.length > 0) {
+                // Afficher le message de succès
+                document.getElementById('success-message').style.display = 'block';
+                
+                // Optionnel: Réinitialiser le formulaire après quelques secondes
+                setTimeout(function() {
+                    document.getElementById('vulnerability-form').reset();
+                    document.getElementById('file-name').textContent = 'Aucun fichier sélectionné';
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
