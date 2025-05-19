@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARMAK Industries</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">TARMAK Industries</div>
+            <div class="tagline"></div>
+        </header>
+        
+        <main>
+            <section class="upload-section">
+                <h2>Importer un fichier</h2>
+                <p>Choisissez le fichier que vous souhaitez importer</p>
+                
+                <form id="vulnerability-form" action="#" method="post">
+                    <div class="file-upload">
+                        <label for="file-input" class="file-label">
+                            <span class="file-icon">⬆️</span>
+                            <span class="file-text">Sélectionner un fichier</span>
+                        </label>
+                        <input type="file" id="file-input" name="file" accept="*/*" required>
+                        <div id="file-name" class="file-name">Aucun fichier sélectionné</div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                </form>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 TARMAK Industries. Tous droits réservés.</p>
+        </footer>
+    </div>
+</body>
+</html>
