@@ -25,13 +25,13 @@
                     <p>✅ Fichier importé avec succès!</p>
                 </div>
                 
-                <form id="vulnerability-form" action="#" method="post">
+                <form id="vulnerability-form" action="upload.php" method="post" enctype="multipart/form-data" novalidate>
                     <div class="file-upload">
                         <label for="file-input" class="file-label">
                             <span class="file-icon">⬆️</span>
                             <span class="file-text">Sélectionner un fichier</span>
                         </label>
-                        <input type="file" id="file-input" name="file" accept="*/*" required>
+                        <input type="file" id="file-input" name="file">
                         <div id="file-name" class="file-name">Aucun fichier sélectionné</div>
                     </div>
                     
@@ -46,26 +46,46 @@
     </div>
     
     <script>
-        // Script pour mettre à jour l'affichage du nom du fichier sélectionné
         document.getElementById('file-input').addEventListener('change', function(e) {
             const fileName = e.target.files[0] ? e.target.files[0].name : 'Aucun fichier sélectionné';
             document.getElementById('file-name').textContent = fileName;
         });
         
-        // Gérer la soumission du formulaire
         document.getElementById('vulnerability-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Empêcher le rechargement de la page
+            e.preventDefault();
             
             const fileInput = document.getElementById('file-input');
             if (fileInput.files.length > 0) {
-                // Afficher le message de succès
-                document.getElementById('success-message').style.display = 'block';
+                const formData = new FormData(this);
                 
-                // Optionnel: Réinitialiser le formulaire après quelques secondes
-                setTimeout(function() {
-                    document.getElementById('vulnerability-form').reset();
-                    document.getElementById('file-name').textContent = 'Aucun fichier sélectionné';
-                }, 3000);
+                fetch('upload.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(result => {
+                    try {
+                        const data = JSON.parse(result);
+                        if (data.success) {
+                            document.getElementById('success-message').style.display = 'block';
+                            console.log('Fichier enregistré dans:', data.path);
+                            setTimeout(function() {
+                                document.getElementById('vulnerability-form').reset();
+                                document.getElementById('file-name').textContent = 'Aucun fichier sélectionné';
+                                document.getElementById('success-message').style.display = 'none';
+                            }, 3000);
+                        } else {
+                            alert(data.message || 'Erreur lors de l\'envoi du fichier');
+                        }
+                    } catch (e) {
+                        console.error('Erreur de parsing JSON:', e);
+                        alert('Erreur lors de l\'envoi du fichier au serveur');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    alert('Erreur lors de l\'envoi du fichier au serveur');
+                });
             }
         });
     </script>

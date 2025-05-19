@@ -1,10 +1,9 @@
-/* Base styles and reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #1a1a2e, #16213e);
@@ -12,7 +11,6 @@ body {
     min-height: 100vh;
     line-height: 1.6;
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,14 +20,12 @@ body {
     min-height: 100vh;
 }
 
-/* Header styles */
 header {
     text-align: center;
     margin-bottom: 3rem;
     padding: 2rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .logo {
     font-family: 'Orbitron', sans-serif;
     font-size: 3.5rem;
@@ -39,21 +35,18 @@ header {
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
 }
-
 .tagline {
     font-size: 1.2rem;
     color: #b8c1ec;
     letter-spacing: 1px;
 }
 
-/* Main content styles */
 main {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .upload-section {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -64,21 +57,18 @@ main {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #4cc9f0;
     text-align: center;
 }
-
 .upload-section p {
     text-align: center;
     margin-bottom: 2rem;
     color: #b8c1ec;
 }
 
-/* Success message */
 .success-message {
     background: rgba(46, 213, 115, 0.2);
     border: 1px solid rgba(46, 213, 115, 0.5);
@@ -88,33 +78,28 @@ h2 {
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
 }
-
 .success-message p {
     color: #2ed573 !important;
     font-weight: 500;
     margin: 0 !important;
     font-size: 1.1rem;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Form styles */
 form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
-
 .file-upload {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 input[type="file"] {
     position: absolute;
     width: 0.1px;
@@ -123,7 +108,6 @@ input[type="file"] {
     overflow: hidden;
     z-index: -1;
 }
-
 .file-label {
     display: flex;
     flex-direction: column;
@@ -137,21 +121,17 @@ input[type="file"] {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
 .file-label:hover {
     background: rgba(76, 201, 240, 0.2);
     transform: translateY(-3px);
 }
-
 .file-icon {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
-
 .file-text {
     font-weight: 500;
 }
-
 .file-name {
     margin-top: 1rem;
     font-size: 0.9rem;
@@ -159,7 +139,6 @@ input[type="file"] {
     text-align: center;
     min-height: 1.5rem;
 }
-
 .submit-btn {
     background: #4cc9f0;
     color: #16213e;
@@ -173,14 +152,12 @@ input[type="file"] {
     margin-top: 1rem;
     letter-spacing: 1px;
 }
-
 .submit-btn:hover {
     background: #7dd8f7;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
 }
 
-/* Footer styles */
 footer {
     text-align: center;
     padding: 2rem 0;
@@ -189,7 +166,6 @@ footer {
     margin-top: 2rem;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .logo {
         font-size: 2.5rem;
@@ -199,7 +175,6 @@ footer {
         padding: 2rem;
     }
 }
-
 @media (max-width: 480px) {
     .container {
         padding: 1rem;
